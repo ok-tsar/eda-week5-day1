@@ -12,7 +12,8 @@ Agenda
 - boxplots
 - correlograms
 
-
 3. Relevant files:
 
-- week5.Rmd 
+- week5-lecture/week5.Rmd 
+
+Next class we will learn about other ways to examine patterns and rankings in the data. Your homework assignment will be posted on Thursday.
