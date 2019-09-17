@@ -48,15 +48,19 @@ Below, let's explore the relationship between life expectancy and region. To do 
 
 ```{r}
 # together:
-
-
-
+ggplot(df, aes(x = continent,y = lifeExp)) +
+  geom_boxplot() +
+  labs(title = "Distribution of global life expectancy 1952-2007",
+       subtitle = "Data source: Gapminder package",
+       x = "Life expenctancy in years",
+       y = "Density") +
+  theme_bw()
 ```
 
 FYI we can flip the axes by using the coord_flip() command. This might increase legibility, particularly if some of your distributions exhibit high spread.
 
 ```{r}
-# together: 
+# students on your own: 
 
 
 
@@ -67,7 +71,7 @@ FYI we can flip the axes by using the coord_flip() command. This might increase 
 We can overlap the boxplot with the original observations using the `geom_point()` geom. This illustrates how many observations are included in each group. Make sure to specify `outlier.shape = NA` within `geom_boxplot()` so that the outliers are not plotted in the `boxplot()` layer, which would be confusing since we are also plotting points using the `geom_point()` geom.
 
 ```{r}
-# together:
+# students on your own:
 
 
 
@@ -77,7 +81,7 @@ We can overlap the boxplot with the original observations using the `geom_point(
 This is confusing because there is a lot of overplotting when we add all original observations to the plot. We can add jitter to the points--a method we've seen before! Recall, this just adds a small random value (i.e. noise) to each point in either direction in order to 'jitter' the points away from one another and increase the graph's interpretability. We can control the spread by using the width argument. We can also decrease the opacity of the points. The plot below shows that while Oceania has the highest median life expectancy, this value is based on a lot fewer observations as compared to other continents.
 
 ```{r}
-# together:
+# students on your own:
 
 
 
@@ -100,6 +104,8 @@ Hints:
 
 ```
 
+*PAUSE* Make sure to put up a blue sticky note when EVERYONE has completed the R code in your group and we are ready to review, and move on. 
+
 ## Correlation matrix
 
 As mentioned in the introduction, there is another way in which we might want to visualize correlations. Specifically, it can be useful to look for patterns in our data across multiple variables, rather than relying on the more narrow specification of a bivariate scatterplot. 
@@ -110,9 +116,8 @@ A correlogram (or correlation matrix) allows us to analyse the relationship betw
 ```{r}
 # together:
 library(corrgram)
-
-
-
+corrgram(df, order=TRUE, lower.panel=panel.shade,
+  upper.panel=panel.pie, text.panel=panel.txt)
 ```
 
 **Practice 2**
@@ -126,6 +131,8 @@ Look up the help file for `corrgram`, and change the arguments to produce differ
 
 
 ```
+
+*PAUSE* Make sure to put up a blue sticky note when EVERYONE has completed the R code in your group and we are ready to review, and move on. 
 
 The above example is a bit awkward due to the low number of variables. Note, there are many ways of creating correlograms in R. Here is another, `ggcorrplot` is available on github (shown below) which we will use to explore a familiar dataset.
 
@@ -161,6 +168,7 @@ Just by reading a bit more about this function, we can make this much more visua
 
 ```
 
+*PAUSE* Make sure to put up a blue sticky note when EVERYONE has completed the R code in your group and we are ready to review.
 
 ## References 
 - https://indrajeetpatil.github.io/ggstatsplot/articles/web_only/ggcorrmat.html
