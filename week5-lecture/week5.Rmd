@@ -6,7 +6,7 @@ output:
   html_document:
     keep_md: true
   pdf_document:
-    number_sections: yes
+    number_sections: no
     toc: no
 subtitle: DSI-EDA 
 urlcolor: blue
